@@ -1,6 +1,7 @@
 package base;
 
 import java.util.ArrayList;
+
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
@@ -22,7 +23,33 @@ public class RateDAL {
 		// right interest rate from the table based on the given credit score
 		
 		//FinalExam - obviously change the return value
-		return 0;
+		
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction tx = null;
+		double finalRate = 0;
+		RateDomainModel rate = null;
+
+		try {
+			tx = session.beginTransaction();
+			List rates = session.createQuery("FROM RateDomainModel").list();
+
+			for (Iterator iterator = rates.iterator(); iterator.hasNext();) {
+				
+				if (GivenCreditScore >= rate.getMinCreditScore())
+						finalRate = rate.getInterestRate();
+
+			}
+
+			tx.commit();	
+		} catch (HibernateException e) {
+			if (tx != null)
+				tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return finalRate;
+
 	}
 
 }

@@ -11,10 +11,20 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
+                  <TextField fx:id="income" layoutY="58.0" />
+                  <TextField fx:id="houseCost" layoutY="318.0" />
+                  <TextField fx:id="creditScore" layoutY="243.0" />
+                  <Label layoutY="21.0" prefHeight="37.0" prefWidth="72.0" text="Income" />
+                  <TextField fx:id="expenses" layoutY="144.0" />
+                  <Label layoutY="107.0" prefHeight="37.0" prefWidth="72.0" text="Expenses" />
+                  <Label layoutX="-6.0" layoutY="206.0" prefHeight="37.0" prefWidth="72.0" text="Credit Score" />
+                  <Label layoutY="280.0" prefHeight="37.0" prefWidth="72.0" text="House Cost" />
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" >
+          <AnchorPane fx:id="income" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
+                  <ComboBox fx:id="Combobox1" layoutY="14.0" prefWidth="150.0" />
+                  <Label layoutY="224.0" prefHeight="49.0" prefWidth="183.0" text="Label" />
                </children>
             </AnchorPane>
         </items>
